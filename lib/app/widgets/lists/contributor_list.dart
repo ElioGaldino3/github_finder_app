@@ -1,31 +1,34 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:github_finder_app/app/shared/models/contributor_model.dart';
 
 import 'items/contributor_item.dart';
 
 class ContributorList extends StatelessWidget {
+  final List<ContributorModel> contributors;
+
+  const ContributorList(this.contributors);
+
   @override
   Widget build(BuildContext context) {
+    if (contributors == null)
+      return Center(
+        child: Text("Ocorreu algum erro ou não há contribuidores"),
+      );
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 13),
       child: SizedBox(
         height: 105.0,
-        child: ListView(
+        child: ListView.builder(
           physics: ClampingScrollPhysics(),
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            ContributorItem(name: "Elio Galdino", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Hixie", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Flutter", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Edmundo", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-            ContributorItem(name: "Pelé", photoContributorUrl: "https://avatars3.githubusercontent.com/u/112007?v=4",),
-          ],
+          itemCount: contributors.length,
+          itemBuilder: (context, index) {
+            return ContributorItem(
+              name: contributors[index].login,
+              photoContributorUrl: contributors[index].avatarUrl,
+            );
+          },
         ),
       ),
     );

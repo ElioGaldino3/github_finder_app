@@ -22,8 +22,8 @@ class _RepositoryPageState extends State<RepositoryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "teste", //controller.repository.fullName,
-          style: TextStyle(color: Colors.grey[700]),
+          controller.repository.fullName,
+          style: TextStyle(color: Colors.grey[700], fontSize: 12),
         ),
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back, color: Colors.grey[700]),
@@ -45,7 +45,6 @@ class _RepositoryPageState extends State<RepositoryPage> {
       body: FutureBuilder(
         future: controller.getData(),
         builder: (context, snapshot) {
-          print("ESTADO DA REPOSITORY PAGE: ${snapshot.connectionState}");
           if (snapshot.connectionState != ConnectionState.done) {
             return Center(
               child: LoadingGit(),
@@ -56,11 +55,11 @@ class _RepositoryPageState extends State<RepositoryPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 TitleCategory(title: "Linguagens"),
-                LanguageList(),
+                LanguageList(controller.languages),
                 TitleCategory(title: "Contribuidores"),
-                ContributorList(),
+                ContributorList(controller.contributors),
                 TitleCategory(title: "Últimos Commits"),
-                Expanded(child: LastCommitList())
+                Expanded(child: LastCommitList(controller.commits))
               ],
             );
           }

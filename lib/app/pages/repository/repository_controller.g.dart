@@ -43,10 +43,44 @@ mixin _$RepositoryController on _RepositoryBase, Store {
     }, _$contributorsAtom, name: '${_$contributorsAtom.name}_set');
   }
 
+  final _$commitsAtom = Atom(name: '_RepositoryBase.commits');
+
+  @override
+  List<CommitModel> get commits {
+    _$commitsAtom.context.enforceReadPolicy(_$commitsAtom);
+    _$commitsAtom.reportObserved();
+    return super.commits;
+  }
+
+  @override
+  set commits(List<CommitModel> value) {
+    _$commitsAtom.context.conditionallyRunInAction(() {
+      super.commits = value;
+      _$commitsAtom.reportChanged();
+    }, _$commitsAtom, name: '${_$commitsAtom.name}_set');
+  }
+
+  final _$languagesAtom = Atom(name: '_RepositoryBase.languages');
+
+  @override
+  List<String> get languages {
+    _$languagesAtom.context.enforceReadPolicy(_$languagesAtom);
+    _$languagesAtom.reportObserved();
+    return super.languages;
+  }
+
+  @override
+  set languages(List<String> value) {
+    _$languagesAtom.context.conditionallyRunInAction(() {
+      super.languages = value;
+      _$languagesAtom.reportChanged();
+    }, _$languagesAtom, name: '${_$languagesAtom.name}_set');
+  }
+
   @override
   String toString() {
     final string =
-        'repository: ${repository.toString()},contributors: ${contributors.toString()}';
+        'repository: ${repository.toString()},contributors: ${contributors.toString()},commits: ${commits.toString()},languages: ${languages.toString()}';
     return '{$string}';
   }
 }
