@@ -4,6 +4,7 @@ import 'package:github_finder_app/app/pages/repository/repository_controller.dar
 import 'package:github_finder_app/app/widgets/lists/contributor_list.dart';
 import 'package:github_finder_app/app/widgets/lists/language_list.dart';
 import 'package:github_finder_app/app/widgets/lists/last_commit_list.dart';
+import 'package:github_finder_app/app/widgets/loading_git.dart';
 import 'package:github_finder_app/app/widgets/title_category.dart';
 
 class RepositoryPage extends StatefulWidget {
@@ -41,17 +42,29 @@ class _RepositoryPageState extends State<RepositoryPage> {
           )
         ],
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TitleCategory(title: "Linguagens"),
-          LanguageList(),
-          TitleCategory(title: "Contribuidores"),
-          ContributorList(),
-          TitleCategory(title: "Últimos Commits"),
-          Expanded(child: LastCommitList())
-        ],
+      body: FutureBuilder(
+        future: controller.getData(),
+        builder: (context, snapshot) {
+          print("ESTADO DA REPOSITORY PAGE: ${snapshot.connectionState}");
+          if (snapshot.connectionState != ConnectionState.done) {
+            return Center(
+              child: LoadingGit(),
+            );
+          } else {
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TitleCategory(title: "Linguagens"),
+                LanguageList(),
+                TitleCategory(title: "Contribuidores"),
+                ContributorList(),
+                TitleCategory(title: "Últimos Commits"),
+                Expanded(child: LastCommitList())
+              ],
+            );
+          }
+        },
       ),
     );
   }

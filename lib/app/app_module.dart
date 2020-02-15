@@ -7,6 +7,7 @@ import 'package:github_finder_app/app/app_widget.dart';
 import 'package:github_finder_app/app/pages/home/home_page.dart';
 
 import 'pages/repository/repository_page.dart';
+import 'shared/repositories/repository_dio.dart';
 
 class AppModule extends MainModule {
   @override
@@ -14,6 +15,7 @@ class AppModule extends MainModule {
         Bind((i) => RepositoryController()),
         Bind((i) => HomeController()),
         Bind((i) => AppController()),
+        Bind((i) => RepositoryDio()),
       ];
 
   @override

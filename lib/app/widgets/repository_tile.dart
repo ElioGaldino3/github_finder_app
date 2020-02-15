@@ -6,14 +6,13 @@ class RepositoryTile extends StatelessWidget {
   final String photoOwnerUrl;
   final Function onTap;
 
-  const RepositoryTile(
-      {Key key,
-      @required this.title,
-      @required this.description,
-      @required this.photoOwnerUrl,
-      @required this.onTap,
-      })
-      : super(key: key);
+  const RepositoryTile({
+    Key key,
+    @required this.title,
+    @required this.description,
+    @required this.photoOwnerUrl,
+    @required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +48,13 @@ class RepositoryTile extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 5),
-                      Text(
-                        description,
-                        style: TextStyle(color: Colors.grey),
+                      Flexible(
+                        child: Text(
+                          description,
+                          softWrap: false,
+                          style: TextStyle(color: Colors.grey),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),

@@ -4,164 +4,165 @@
 
 import 'dart:convert';
 
-RepositoryModel repositoryModelFromJson(String str) => RepositoryModel.fromJson(json.decode(str));
+RepositoryModel repositoryModelFromJson(String str) =>
+    RepositoryModel.fromJson(json.decode(str));
 
-String repositoryModelToJson(RepositoryModel data) => json.encode(data.toJson());
+String repositoryModelToJson(RepositoryModel data) =>
+    json.encode(data.toJson());
 
 class RepositoryModel {
-    int id;
-    String nodeId;
-    String name;
-    String fullName;
-    bool private;
-    Owner owner;
-    String htmlUrl;
-    String description;
-    bool fork;
-    String url;
-    String forksUrl;
-    String keysUrl;
-    String collaboratorsUrl;
-    String teamsUrl;
-    String hooksUrl;
-    String issueEventsUrl;
-    String eventsUrl;
-    String assigneesUrl;
-    String branchesUrl;
-    String tagsUrl;
-    String blobsUrl;
-    String gitTagsUrl;
-    String gitRefsUrl;
-    String treesUrl;
-    String statusesUrl;
-    String languagesUrl;
-    String stargazersUrl;
-    String contributorsUrl;
-    String subscribersUrl;
-    String subscriptionUrl;
-    String commitsUrl;
-    String gitCommitsUrl;
-    String commentsUrl;
-    String issueCommentUrl;
-    String contentsUrl;
-    String compareUrl;
-    String mergesUrl;
-    String archiveUrl;
-    String downloadsUrl;
-    String issuesUrl;
-    String pullsUrl;
-    String milestonesUrl;
-    String notificationsUrl;
-    String labelsUrl;
-    String releasesUrl;
-    String deploymentsUrl;
-    DateTime createdAt;
-    DateTime updatedAt;
-    DateTime pushedAt;
-    String gitUrl;
-    String sshUrl;
-    String cloneUrl;
-    String svnUrl;
-    String homepage;
-    int size;
-    int stargazersCount;
-    int watchersCount;
-    String language;
-    bool hasIssues;
-    bool hasProjects;
-    bool hasDownloads;
-    bool hasWiki;
-    bool hasPages;
-    int forksCount;
-    dynamic mirrorUrl;
-    bool archived;
-    bool disabled;
-    int openIssuesCount;
-    License license;
-    int forks;
-    int openIssues;
-    int watchers;
-    String defaultBranch;
-    int score;
+  int id;
+  String nodeId;
+  String name;
+  String fullName;
+  bool private;
+  Owner owner;
+  String htmlUrl;
+  String description;
+  bool fork;
+  String url;
+  String forksUrl;
+  String keysUrl;
+  String collaboratorsUrl;
+  String teamsUrl;
+  String hooksUrl;
+  String issueEventsUrl;
+  String eventsUrl;
+  String assigneesUrl;
+  String branchesUrl;
+  String tagsUrl;
+  String blobsUrl;
+  String gitTagsUrl;
+  String gitRefsUrl;
+  String treesUrl;
+  String statusesUrl;
+  String languagesUrl;
+  String stargazersUrl;
+  String contributorsUrl;
+  String subscribersUrl;
+  String subscriptionUrl;
+  String commitsUrl;
+  String gitCommitsUrl;
+  String commentsUrl;
+  String issueCommentUrl;
+  String contentsUrl;
+  String compareUrl;
+  String mergesUrl;
+  String archiveUrl;
+  String downloadsUrl;
+  String issuesUrl;
+  String pullsUrl;
+  String milestonesUrl;
+  String notificationsUrl;
+  String labelsUrl;
+  String releasesUrl;
+  String deploymentsUrl;
+  DateTime createdAt;
+  DateTime updatedAt;
+  DateTime pushedAt;
+  String gitUrl;
+  String sshUrl;
+  String cloneUrl;
+  String svnUrl;
+  String homepage;
+  int size;
+  int stargazersCount;
+  int watchersCount;
+  String language;
+  bool hasIssues;
+  bool hasProjects;
+  bool hasDownloads;
+  bool hasWiki;
+  bool hasPages;
+  int forksCount;
+  dynamic mirrorUrl;
+  bool archived;
+  bool disabled;
+  int openIssuesCount;
+  int forks;
+  int openIssues;
+  int watchers;
+  String defaultBranch;
+  double score;
 
-    RepositoryModel({
-        this.id,
-        this.nodeId,
-        this.name,
-        this.fullName,
-        this.private,
-        this.owner,
-        this.htmlUrl,
-        this.description,
-        this.fork,
-        this.url,
-        this.forksUrl,
-        this.keysUrl,
-        this.collaboratorsUrl,
-        this.teamsUrl,
-        this.hooksUrl,
-        this.issueEventsUrl,
-        this.eventsUrl,
-        this.assigneesUrl,
-        this.branchesUrl,
-        this.tagsUrl,
-        this.blobsUrl,
-        this.gitTagsUrl,
-        this.gitRefsUrl,
-        this.treesUrl,
-        this.statusesUrl,
-        this.languagesUrl,
-        this.stargazersUrl,
-        this.contributorsUrl,
-        this.subscribersUrl,
-        this.subscriptionUrl,
-        this.commitsUrl,
-        this.gitCommitsUrl,
-        this.commentsUrl,
-        this.issueCommentUrl,
-        this.contentsUrl,
-        this.compareUrl,
-        this.mergesUrl,
-        this.archiveUrl,
-        this.downloadsUrl,
-        this.issuesUrl,
-        this.pullsUrl,
-        this.milestonesUrl,
-        this.notificationsUrl,
-        this.labelsUrl,
-        this.releasesUrl,
-        this.deploymentsUrl,
-        this.createdAt,
-        this.updatedAt,
-        this.pushedAt,
-        this.gitUrl,
-        this.sshUrl,
-        this.cloneUrl,
-        this.svnUrl,
-        this.homepage,
-        this.size,
-        this.stargazersCount,
-        this.watchersCount,
-        this.language,
-        this.hasIssues,
-        this.hasProjects,
-        this.hasDownloads,
-        this.hasWiki,
-        this.hasPages,
-        this.forksCount,
-        this.mirrorUrl,
-        this.archived,
-        this.disabled,
-        this.openIssuesCount,
-        this.license,
-        this.forks,
-        this.openIssues,
-        this.watchers,
-        this.defaultBranch,
-        this.score,
-    });
+  RepositoryModel({
+    this.id,
+    this.nodeId,
+    this.name,
+    this.fullName,
+    this.private,
+    this.owner,
+    this.htmlUrl,
+    this.description,
+    this.fork,
+    this.url,
+    this.forksUrl,
+    this.keysUrl,
+    this.collaboratorsUrl,
+    this.teamsUrl,
+    this.hooksUrl,
+    this.issueEventsUrl,
+    this.eventsUrl,
+    this.assigneesUrl,
+    this.branchesUrl,
+    this.tagsUrl,
+    this.blobsUrl,
+    this.gitTagsUrl,
+    this.gitRefsUrl,
+    this.treesUrl,
+    this.statusesUrl,
+    this.languagesUrl,
+    this.stargazersUrl,
+    this.contributorsUrl,
+    this.subscribersUrl,
+    this.subscriptionUrl,
+    this.commitsUrl,
+    this.gitCommitsUrl,
+    this.commentsUrl,
+    this.issueCommentUrl,
+    this.contentsUrl,
+    this.compareUrl,
+    this.mergesUrl,
+    this.archiveUrl,
+    this.downloadsUrl,
+    this.issuesUrl,
+    this.pullsUrl,
+    this.milestonesUrl,
+    this.notificationsUrl,
+    this.labelsUrl,
+    this.releasesUrl,
+    this.deploymentsUrl,
+    this.createdAt,
+    this.updatedAt,
+    this.pushedAt,
+    this.gitUrl,
+    this.sshUrl,
+    this.cloneUrl,
+    this.svnUrl,
+    this.homepage,
+    this.size,
+    this.stargazersCount,
+    this.watchersCount,
+    this.language,
+    this.hasIssues,
+    this.hasProjects,
+    this.hasDownloads,
+    this.hasWiki,
+    this.hasPages,
+    this.forksCount,
+    this.mirrorUrl,
+    this.archived,
+    this.disabled,
+    this.openIssuesCount,
+    this.forks,
+    this.openIssues,
+    this.watchers,
+    this.defaultBranch,
+    this.score,
+  });
 
-    factory RepositoryModel.fromJson(Map<String, dynamic> json) => RepositoryModel(
+  factory RepositoryModel.fromJson(Map<String, dynamic> json) =>
+      RepositoryModel(
         id: json["id"],
         nodeId: json["node_id"],
         name: json["name"],
@@ -230,15 +231,20 @@ class RepositoryModel {
         archived: json["archived"],
         disabled: json["disabled"],
         openIssuesCount: json["open_issues_count"],
-        license: License.fromJson(json["license"]),
         forks: json["forks"],
         openIssues: json["open_issues"],
         watchers: json["watchers"],
         defaultBranch: json["default_branch"],
         score: json["score"],
-    );
+      );
+  static List<RepositoryModel> fromJsonList(List list) {
+    if (list == null) return null;
+    return list
+        .map((repository) => RepositoryModel.fromJson(repository))
+        .toList();
+  }
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "node_id": nodeId,
         "name": name,
@@ -307,89 +313,56 @@ class RepositoryModel {
         "archived": archived,
         "disabled": disabled,
         "open_issues_count": openIssuesCount,
-        "license": license.toJson(),
         "forks": forks,
         "open_issues": openIssues,
         "watchers": watchers,
         "default_branch": defaultBranch,
         "score": score,
-    };
-}
-
-class License {
-    String key;
-    String name;
-    String spdxId;
-    String url;
-    String nodeId;
-
-    License({
-        this.key,
-        this.name,
-        this.spdxId,
-        this.url,
-        this.nodeId,
-    });
-
-    factory License.fromJson(Map<String, dynamic> json) => License(
-        key: json["key"],
-        name: json["name"],
-        spdxId: json["spdx_id"],
-        url: json["url"],
-        nodeId: json["node_id"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "key": key,
-        "name": name,
-        "spdx_id": spdxId,
-        "url": url,
-        "node_id": nodeId,
-    };
+      };
 }
 
 class Owner {
-    String login;
-    int id;
-    String nodeId;
-    String avatarUrl;
-    String gravatarId;
-    String url;
-    String htmlUrl;
-    String followersUrl;
-    String followingUrl;
-    String gistsUrl;
-    String starredUrl;
-    String subscriptionsUrl;
-    String organizationsUrl;
-    String reposUrl;
-    String eventsUrl;
-    String receivedEventsUrl;
-    String type;
-    bool siteAdmin;
+  String login;
+  int id;
+  String nodeId;
+  String avatarUrl;
+  String gravatarId;
+  String url;
+  String htmlUrl;
+  String followersUrl;
+  String followingUrl;
+  String gistsUrl;
+  String starredUrl;
+  String subscriptionsUrl;
+  String organizationsUrl;
+  String reposUrl;
+  String eventsUrl;
+  String receivedEventsUrl;
+  String type;
+  bool siteAdmin;
 
-    Owner({
-        this.login,
-        this.id,
-        this.nodeId,
-        this.avatarUrl,
-        this.gravatarId,
-        this.url,
-        this.htmlUrl,
-        this.followersUrl,
-        this.followingUrl,
-        this.gistsUrl,
-        this.starredUrl,
-        this.subscriptionsUrl,
-        this.organizationsUrl,
-        this.reposUrl,
-        this.eventsUrl,
-        this.receivedEventsUrl,
-        this.type,
-        this.siteAdmin,
-    });
+  Owner({
+    this.login,
+    this.id,
+    this.nodeId,
+    this.avatarUrl,
+    this.gravatarId,
+    this.url,
+    this.htmlUrl,
+    this.followersUrl,
+    this.followingUrl,
+    this.gistsUrl,
+    this.starredUrl,
+    this.subscriptionsUrl,
+    this.organizationsUrl,
+    this.reposUrl,
+    this.eventsUrl,
+    this.receivedEventsUrl,
+    this.type,
+    this.siteAdmin,
+  });
 
-    factory Owner.fromJson(Map<String, dynamic> json) => Owner(
+  factory Owner.fromJson(Map<String, dynamic> json) => Owner(
         login: json["login"],
         id: json["id"],
         nodeId: json["node_id"],
@@ -408,9 +381,9 @@ class Owner {
         receivedEventsUrl: json["received_events_url"],
         type: json["type"],
         siteAdmin: json["site_admin"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "login": login,
         "id": id,
         "node_id": nodeId,
@@ -429,5 +402,5 @@ class Owner {
         "received_events_url": receivedEventsUrl,
         "type": type,
         "site_admin": siteAdmin,
-    };
+      };
 }
