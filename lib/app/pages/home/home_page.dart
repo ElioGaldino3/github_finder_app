@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:github_finder_app/app/widgets/loading_git.dart';
 import 'package:github_finder_app/app/widgets/repository_tile.dart';
 
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             photoOwnerUrl:
                 "https://avatars3.githubusercontent.com/u/14101776?v=4",
             onTap: () {
-              
+              Modular.to.pushNamed('repository');
             },
           ),
         ],
